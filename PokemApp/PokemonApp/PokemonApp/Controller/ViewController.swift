@@ -7,9 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
     @IBOutlet weak var tableViewOutlet: UITableView!
+    
     var pokey:[Card] = []
     
     override func viewDidLoad() {
@@ -44,6 +45,10 @@ class ViewController: UIViewController {
                 dump(jsonData)
                 self.pokey = jsonData.cards
                 
+                DispatchQueue.main.async {
+                    self.tableViewOutlet.reloadData()
+                }
+                
             }catch{
                 print("error::::",error)
             }
@@ -51,6 +56,29 @@ class ViewController: UIViewController {
         
     }
 
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pokey.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PokemonTableViewCell
+        
+        let card = pokey[indexPath.row]
+        cell.nameLabel?.text = "Name: " + (card.name )
+        cell.typeLabel?.text = "Type: " + (card.types?.joined(separator: ", ") ?? "N/A")
+        
+        
+        return cell
+    }
 
 }
+
+
+
+
+
 
