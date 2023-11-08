@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableViewOutlet: UITableView!
     
@@ -56,21 +56,22 @@ class ViewController: UITableViewController {
         
     }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pokey.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PokemonTableViewCell
         
         let card = pokey[indexPath.row]
         cell.nameLabel?.text = "Name: " + (card.name )
         cell.typeLabel?.text = "Type: " + (card.types?.joined(separator: ", ") ?? "N/A")
-        
+        cell.cardImageView?.image = UIImage(named: card.imageURL)
+        cell.seriesLabel.text = "Series: " + (card.series)!.rawValue 
         
         return cell
     }
