@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController {
 
     @IBOutlet weak var tableViewOutlet: UITableView!
     
@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableViewOutlet.dataSource = self
         loadPokemonData()
     }
     
@@ -56,8 +57,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
 
+    
+
+}
+
+extension ViewController: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 10
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,16 +77,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let card = pokey[indexPath.row]
         cell.nameLabel?.text = "Name: " + (card.name )
         cell.typeLabel?.text = "Type: " + (card.types?.joined(separator: ", ") ?? "N/A")
-        cell.cardImageView?.image = UIImage(named: card.imageURL)
-        cell.seriesLabel.text = "Series: " + (card.series)!.rawValue 
+
+        if let url = URL(string: card.imageURL) {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url) {
+                    DispatchQueue.main.async {
+                        cell.cardImageView?.image = UIImage(data: data)
+                    }
+                }
+            }
+        }
+        cell.seriesLabel.text = "Series: " + (card.series)!.rawValue
         
         return cell
     }
-
+    
 }
-
-
-
 
 
 
