@@ -44,6 +44,11 @@ class ViewController: UIViewController {
                 dump(jsonData)
                 self.pokey = jsonData.cards
                 
+                DispatchQueue.main.async{
+                    self.tableViewOutlet.reloadData()
+                }
+                
+                
             }catch{
                 print("error::::",error)
             }
@@ -52,5 +57,33 @@ class ViewController: UIViewController {
     }
 
 
+}
+
+extension ViewController:UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView:UITableView,numberOfRowsInSection section: Int)->Int{
+        return pokey.count
+    }
+    
+    func tableView(_ tableView:UITableView,cellForRowAt indexPath:IndexPath)->UITableViewCell{
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as? PokeyTableViewCell else{
+            return UITableViewCell()
+        }
+        let poke = pokey[indexPath.row]
+        cell.setupUI(withdDataFrom: poke)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView:UITableView, heightForRowAt indexPath: IndexPath)->CGFloat{
+        return 250
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pokeymon"{
+//            guard let destinationVC = segue.destination as? ViewController, let row = tableViewOutlet.indexPathForSelectedRow?.row else{
+//                return
+//            }
+//            destinationVC.pokey = pokey[r]
+        }
+    }
 }
 
