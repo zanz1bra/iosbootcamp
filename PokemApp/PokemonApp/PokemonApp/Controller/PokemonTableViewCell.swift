@@ -16,8 +16,6 @@ class PokemonTableViewCell: UITableViewCell {
     @IBOutlet weak var seriesLabel: UILabel!
     
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -92,6 +92,14 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "pokemonDetailVC" {
+            guard let destinationVC = segue.destination as? PokemonDetailViewController, let indexPath = tableViewOutlet.indexPathForSelectedRow
+            else { return }
+            destinationVC.pokemon = pokey[indexPath.row]
+        }
+    }
 }
 
 
