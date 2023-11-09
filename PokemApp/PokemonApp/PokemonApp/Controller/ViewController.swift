@@ -7,15 +7,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UISearchBarDelegate {
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableViewOutlet: UITableView!
     
     var pokey:[Card] = []
+    var allPokemon: [Card] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewOutlet.dataSource = self
+        searchBar.delegate = self
         loadPokemonData()
     }
     
@@ -45,6 +48,7 @@ class ViewController: UIViewController {
                 let jsonData = try JSONDecoder().decode(Pokemon.self,from:data)
                 dump(jsonData)
                 self.pokey = jsonData.cards
+                self.allPokemon = self.pokey
                 
                 DispatchQueue.main.async {
                     self.tableViewOutlet.reloadData()
@@ -57,7 +61,24 @@ class ViewController: UIViewController {
         
     }
 
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterPokemon(searchText)
+        tableViewOutlet.reloadData()
+    }
     
+    func filterPokemon(_ searchText: String) {
+        if searchText.isEmpty {
+            pokey = allPokemon
+        } else {
+            pokey = allPokemon.filter { card in
+                let nameMatch = card.name.lowercased().contains(searchText.lowercased())
+                let typeMatch = card.types?.contains { $0.lowercased().contains(searchText.lowercased())} ?? false
+                let seriesMatch = card.series?.rawValue.lowercased().contains(searchText.lowercased()) ?? false
+                
+                return nameMatch || typeMatch || seriesMatch
+            }
+        }
+    }
 
 }
 
