@@ -78,11 +78,11 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
         return 250
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "pokeymon"{
-//            guard let destinationVC = segue.destination as? ViewController, let row = tableViewOutlet.indexPathForSelectedRow?.row else{
-//                return
-//            }
-//            destinationVC.pokey = pokey[r]
+        if segue.identifier == "pokemon" {
+            guard let destinationVC = segue.destination as? PokeyDetailViewController, let row = tableViewOutlet.indexPathForSelectedRow?.row else { return
+            }
+            destinationVC.pokemon = pokey[row]
+            
         }
     }
 }
