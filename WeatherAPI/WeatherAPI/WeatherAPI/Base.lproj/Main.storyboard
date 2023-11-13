@@ -1,35 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hsc-kS-Lxz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hsc-kS-Lxz">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Weather View Contoller-->
+        <!--Your Weather-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="WeatherViewContoller" customModule="WeatherAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="tzh-4b-Lhq">
+                                <rect key="frame" x="85" y="205" width="223" height="310"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2d-Gn-pK9">
+                                        <rect key="frame" x="0.0" y="0.0" width="223" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="aud-Rj-E3t"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="223" id="wiI-3b-f7y"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SY6-W6-nsJ">
+                                        <rect key="frame" x="0.0" y="85" width="223" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="1vN-VN-JZe"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="223" id="63L-nG-wG1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suw-JL-usT">
+                                        <rect key="frame" x="0.0" y="170" width="223" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="Pa9-Lz-dzl"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="223" id="WWt-9T-zsc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feels like temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeM-MG-Ce9">
+                                        <rect key="frame" x="0.0" y="255" width="223" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="CME-3T-INA"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="223" id="ZBk-C8-qvr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0Ur-Ed-7hk"/>
+                    <navigationItem key="navigationItem" title="Your Weather" id="0Ur-Ed-7hk"/>
+                    <connections>
+                        <outlet property="cityNameLabel" destination="U2d-Gn-pK9" id="gaL-lZ-zhB"/>
+                        <outlet property="conditionLabel" destination="SY6-W6-nsJ" id="PeK-v8-qDY"/>
+                        <outlet property="feelsLikeTempLabel" destination="AeM-MG-Ce9" id="oLQ-Oe-Ae8"/>
+                        <outlet property="tempLabel" destination="suw-JL-usT" id="OZx-Fd-l7p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-239" y="-694"/>
+            <point key="canvasLocation" x="-240.45801526717557" y="-694.36619718309862"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jMA-Ly-yWo">
             <objects>
                 <navigationController id="Hsc-kS-Lxz" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yhb-9e-dnh">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="yhb-9e-dnh">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
