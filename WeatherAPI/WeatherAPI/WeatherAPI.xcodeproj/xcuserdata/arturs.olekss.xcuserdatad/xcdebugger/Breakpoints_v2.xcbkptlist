@@ -7,33 +7,127 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7FE2FDAE-8EEC-4A9E-A516-899CB89A045E"
+            uuid = "CD7AC75A-60DB-4BC9-9C42-E03F760A9024"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherAPI/Controller/WeatherController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "locationManager(_:didUpateLocations:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CD7AC75A-60DB-4BC9-9C42-E03F760A9024 - 4d8c738ed06f4a8d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAPI.WeatherViewContoller.locationManager(_: __C.CLLocationManager, didUpateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "WeatherAPI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arturs.olekss/Documents/iosBootcamp/iosbootcamp/WeatherAPI/WeatherAPI/WeatherAPI/Controller/WeatherController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "CD7AC75A-60DB-4BC9-9C42-E03F760A9024 - 4d8c738ed06f4aea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAPI.WeatherViewContoller.locationManager(_: __C.CLLocationManager, didUpateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "WeatherAPI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arturs.olekss/Documents/iosBootcamp/iosbootcamp/WeatherAPI/WeatherAPI/WeatherAPI/Controller/WeatherController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "CD7AC75A-60DB-4BC9-9C42-E03F760A9024 - 4d8c738ed06f4aea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAPI.WeatherViewContoller.locationManager(_: __C.CLLocationManager, didUpateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "WeatherAPI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arturs.olekss/Documents/iosBootcamp/iosbootcamp/WeatherAPI/WeatherAPI/WeatherAPI/Controller/WeatherController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "CD7AC75A-60DB-4BC9-9C42-E03F760A9024 - 55aae71633f824e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAPI.WeatherViewContoller.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "WeatherAPI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arturs.olekss/Documents/iosBootcamp/iosbootcamp/WeatherAPI/WeatherAPI/WeatherAPI/Controller/WeatherController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "144">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7F6F0A59-AC34-4B11-A541-E4D552AC1BF6"
+            uuid = "8B15B57E-E32D-43DD-844C-660672E0ED59"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherAPI/Controller/WeatherController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "loadWeatherData()"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "locationManager(_:didUpateLocations:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8B15B57E-E32D-43DD-844C-660672E0ED59 - 4d8c738ed06f4a8d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAPI.WeatherViewContoller.locationManager(_: __C.CLLocationManager, didUpateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "WeatherAPI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arturs.olekss/Documents/iosBootcamp/iosbootcamp/WeatherAPI/WeatherAPI/WeatherAPI/Controller/WeatherController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "223">
+               </Location>
+               <Location
+                  uuid = "8B15B57E-E32D-43DD-844C-660672E0ED59 - 55aae71633f82484"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAPI.WeatherViewContoller.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "WeatherAPI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arturs.olekss/Documents/iosBootcamp/iosbootcamp/WeatherAPI/WeatherAPI/WeatherAPI/Controller/WeatherController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "223">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
