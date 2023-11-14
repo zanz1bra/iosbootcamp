@@ -16,31 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="tzh-4b-Lhq">
-                                <rect key="frame" x="85" y="205" width="223" height="310"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="tzh-4b-Lhq">
+                                <rect key="frame" x="85.666666666666686" y="205" width="223" height="140"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2d-Gn-pK9">
-                                        <rect key="frame" x="0.0" y="0.0" width="223" height="55"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="aud-Rj-E3t"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="223" id="wiI-3b-f7y"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SY6-W6-nsJ">
-                                        <rect key="frame" x="0.0" y="85" width="223" height="55"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="1vN-VN-JZe"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="223" id="63L-nG-wG1"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suw-JL-usT">
-                                        <rect key="frame" x="0.0" y="170" width="223" height="55"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="223" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="Pa9-Lz-dzl"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="223" id="WWt-9T-zsc"/>
@@ -50,7 +30,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feels like temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeM-MG-Ce9">
-                                        <rect key="frame" x="0.0" y="255" width="223" height="55"/>
+                                        <rect key="frame" x="0.0" y="85" width="223" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="CME-3T-INA"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="223" id="ZBk-C8-qvr"/>
@@ -61,15 +41,46 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XY7-kL-5LZ">
+                                <rect key="frame" x="103" y="465" width="188" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="J5O-Ss-hg9"/>
+                                    <constraint firstAttribute="width" constant="188" id="QFJ-PD-TVB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dP2-gy-aLW">
+                                <rect key="frame" x="102.66666666666669" y="541" width="188" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="188" id="3t2-TQ-U61"/>
+                                    <constraint firstAttribute="height" constant="63" id="ikN-sE-9sm"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Get your temperature"/>
+                                <connections>
+                                    <action selector="getTemp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bl6-XJ-YZe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XY7-kL-5LZ" firstAttribute="centerX" secondItem="tzh-4b-Lhq" secondAttribute="centerX" id="3IU-3F-wAa"/>
+                            <constraint firstItem="dP2-gy-aLW" firstAttribute="top" secondItem="XY7-kL-5LZ" secondAttribute="bottom" constant="42" id="4rI-qq-R25"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dP2-gy-aLW" secondAttribute="bottom" constant="214" id="E7N-g8-Fdr"/>
+                            <constraint firstItem="XY7-kL-5LZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Iih-zO-58Z"/>
+                            <constraint firstItem="dP2-gy-aLW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S4r-MI-oWr"/>
+                            <constraint firstItem="tzh-4b-Lhq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="fLF-fN-2WS"/>
+                            <constraint firstItem="XY7-kL-5LZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="103" id="gnE-A7-Exy"/>
+                            <constraint firstItem="dP2-gy-aLW" firstAttribute="top" secondItem="XY7-kL-5LZ" secondAttribute="bottom" constant="42" id="pTW-gs-SvD"/>
+                            <constraint firstItem="dP2-gy-aLW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="102.66666666666669" id="yhX-dA-JbN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Your Weather" id="0Ur-Ed-7hk"/>
                     <connections>
-                        <outlet property="cityNameLabel" destination="U2d-Gn-pK9" id="gaL-lZ-zhB"/>
-                        <outlet property="conditionLabel" destination="SY6-W6-nsJ" id="PeK-v8-qDY"/>
                         <outlet property="feelsLikeTempLabel" destination="AeM-MG-Ce9" id="oLQ-Oe-Ae8"/>
+                        <outlet property="inputCity" destination="XY7-kL-5LZ" id="IHp-5X-R9C"/>
                         <outlet property="tempLabel" destination="suw-JL-usT" id="OZx-Fd-l7p"/>
                     </connections>
                 </viewController>
