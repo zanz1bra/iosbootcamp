@@ -45,7 +45,18 @@ class WeatherViewContoller: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func getTemp(_ sender: Any) {
+        
+        guard let inputCityText = self.inputCity.text, !inputCityText.isEmpty else {
+            let alertController = UIAlertController(title: "Text field is empty", message: "Please add a city to find out the weather", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(action)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+            
         self.location = self.inputCity.text!
+        self.loadWeatherData()
+        self.view.endEditing(true)
     }
     
     
@@ -63,18 +74,25 @@ class WeatherViewContoller: UIViewController, CLLocationManagerDelegate {
             case .success(let value):
                 
                 self.currentWeather = value
-                self.tempLabel.text = (self.currentWeather?.current.tempC?.description ?? "...") + " ºC"
-                self.feelsLikeTempLabel.text = (self.currentWeather?.current.feelslikeC?.description ?? "...") + " ºC"
+                self.tempLabel.text = "Temperature: \(self.currentWeather?.current.tempC?.description ?? "...")" + " ºC"
+                self.feelsLikeTempLabel.text = "Feels like: \(self.currentWeather?.current.feelslikeC?.description ?? "...")" + " ºC"
                 self.inputCity.text = (self.currentWeather?.location.name ?? self.inputCity.text)
 
             case.failure(let error):
                 print(error)
                 self.tempLabel.text = "Error..."
                 self.feelsLikeTempLabel.text = "Error..."
+                self.displayErrorAlert(error: error)
             }
         }
     }
     
+    func displayErrorAlert(error: Error) {
+        let alertController = UIAlertController(title: "Error", message: "An error occured: \(error.localizedDescription)", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
 
 }
 
