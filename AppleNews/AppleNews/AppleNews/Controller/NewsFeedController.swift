@@ -50,19 +50,18 @@ extension NewsFeedController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: cellID)
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath as IndexPath)
+        cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: cellID)
         
         let article = self.newsItems[indexPath.row]
         
         let titleLabel = UILabel()
         titleLabel.text = article.title ?? ""
         
-        let widthTitleConstr = NSLayoutConstraint(item:titleLabel,
+        let widthTitleConstr = NSLayoutConstraint(item: titleLabel,
                                                   attribute: NSLayoutConstraint.Attribute.width,
-                                                  relatedBy:NSLayoutConstraint.Relation.lessThanOrEqual,
-                                                  toItem: nil,attribute: NSLayoutConstraint.Attribute.notAnAttribute,
-                                                  multiplier: 1,constant: 175
-        )
+                                                  relatedBy: NSLayoutConstraint.Relation.lessThanOrEqual,
+                                                  toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 175)
         
         titleLabel.addConstraint(widthTitleConstr)
         titleLabel.numberOfLines = 0
@@ -71,19 +70,15 @@ extension NewsFeedController{
         let imageView = UIImageView()
         imageView.sd_setImage(with: URL(string:article.urlToImage ?? ""))
         
-        let widthImageConstr = NSLayoutConstraint(item:imageView,
+        let widthImageConstr = NSLayoutConstraint(item: imageView,
                                                   attribute: NSLayoutConstraint.Attribute.width,
-                                                  relatedBy:NSLayoutConstraint.Relation.equal,
-                                                  toItem: nil,attribute: NSLayoutConstraint.Attribute.notAnAttribute,
-                                                  multiplier: 1,constant: 150
-        )
+                                                  relatedBy: NSLayoutConstraint.Relation.equal,
+                                                  toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 165)
         
-        let heightImageConstr = NSLayoutConstraint(item:imageView,
-                                                  attribute: NSLayoutConstraint.Attribute.height,
-                                                  relatedBy:NSLayoutConstraint.Relation.equal,
-                                                  toItem: nil,attribute: NSLayoutConstraint.Attribute.notAnAttribute,
-                                                  multiplier: 1,constant: 150
-        )
+        let heightImageConstr = NSLayoutConstraint(item: imageView,
+                                                   attribute: NSLayoutConstraint.Attribute.height,
+                                                   relatedBy: NSLayoutConstraint.Relation.equal,
+                                                   toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 150)
         
         imageView.addConstraints([widthImageConstr,heightImageConstr])
         
@@ -91,6 +86,9 @@ extension NewsFeedController{
         stackView.axis = .horizontal
         stackView.alignment = .center
         cell.addSubview(stackView)
+        
+        stackView.spacing = 3
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return cell
     }
 }
