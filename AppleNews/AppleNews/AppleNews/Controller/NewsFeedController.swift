@@ -50,15 +50,42 @@ extension NewsFeedController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: cellID)
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: cellID)
         
         let article = self.newsItems[indexPath.row]
         
         let titleLabel = UILabel()
         titleLabel.text = article.title ?? ""
         
+        let widthTitleConstr = NSLayoutConstraint(item:titleLabel,
+                                                  attribute: NSLayoutConstraint.Attribute.width,
+                                                  relatedBy:NSLayoutConstraint.Relation.lessThanOrEqual,
+                                                  toItem: nil,attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+                                                  multiplier: 1,constant: 175
+        )
+        
+        titleLabel.addConstraint(widthTitleConstr)
+        titleLabel.numberOfLines = 0
+        titleLabel.lineBreakMode = .byWordWrapping
+        
         let imageView = UIImageView()
         imageView.sd_setImage(with: URL(string:article.urlToImage ?? ""))
+        
+        let widthImageConstr = NSLayoutConstraint(item:imageView,
+                                                  attribute: NSLayoutConstraint.Attribute.width,
+                                                  relatedBy:NSLayoutConstraint.Relation.equal,
+                                                  toItem: nil,attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+                                                  multiplier: 1,constant: 150
+        )
+        
+        let heightImageConstr = NSLayoutConstraint(item:imageView,
+                                                  attribute: NSLayoutConstraint.Attribute.height,
+                                                  relatedBy:NSLayoutConstraint.Relation.equal,
+                                                  toItem: nil,attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+                                                  multiplier: 1,constant: 150
+        )
+        
+        imageView.addConstraints([widthImageConstr,heightImageConstr])
         
         let stackView = UIStackView(arrangedSubviews: [imageView,titleLabel])
         stackView.axis = .horizontal
