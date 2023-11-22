@@ -21,7 +21,7 @@ class NewsFeedController: UITableViewController {
     
     private func setupView(){
         title = "News"
-        view.backgroundColor = .secondarySystemBackground
+        view.backgroundColor = .systemGray
         tableView.register(UITableViewCell.self,forCellReuseIdentifier: cellID)
         tableView.rowHeight = 200
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -52,11 +52,14 @@ extension NewsFeedController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath as IndexPath)
         cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: cellID)
+        cell.backgroundColor = .systemGray
         
         let article = self.newsItems[indexPath.row]
         
         let titleLabel = UILabel()
         titleLabel.text = article.title ?? ""
+        titleLabel.font = UIFont(name: "Helveica", size: 15)
+        titleLabel.textAlignment = .justified
         
         let widthTitleConstr = NSLayoutConstraint(item: titleLabel,
                                                   attribute: NSLayoutConstraint.Attribute.width,
