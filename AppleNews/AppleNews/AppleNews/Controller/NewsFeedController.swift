@@ -91,5 +91,16 @@ extension NewsFeedController{
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedArticle = newsItems[indexPath.row]
+        showArticleDetail(article: selectedArticle)
+    }
+    
+    private func showArticleDetail(article: Article) {
+        let articleDetailVC = ArticleDetails()
+        articleDetailVC.article = article
+        navigationController?.pushViewController(articleDetailVC, animated: true)
+    }
 }
 
